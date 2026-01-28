@@ -3,16 +3,20 @@ package com.FileHandling;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.time.Instant;
 
 public class PathListing {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Path path = Path.of("files/pathfile.txt");
 //        printPathInfo(path);
 //        logStatement(path);
-        extraInfo(path);
+//        extraInfo(path);
+        Files.list(Paths.get("C:/Users/amohammed/OneDrive - Infor/Desktop/java_basics/collections_extended/src/com/FileHandling/HYRtutorials"))
+                .filter(Files::isRegularFile)
+                .forEach(System.out::println);
     }
     private static void printPathInfo(Path path){
         System.out.println("Path: " + path);
